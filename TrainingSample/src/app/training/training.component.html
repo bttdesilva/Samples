@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><input [(ngModel)]='training.name'></td>
+    </tr>
+    <tr>
+      <td>Start Date</td>
+      <td><input [(ngModel)]='training.startDate'></td>
+    </tr>
+    <tr>
+      <td>End Date</td>
+      <td><input [(ngModel)]='training.endDate'></td>
+    </tr>
+    <!--<tr *ngIf="!trainings">
+      <td colspan="5">
+        {{statusMessage}}
+      </td>
+    </tr>-->
+  </table>
+  <br />
+  <br />
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let training of trainings;">
+          <td>{{training.id }}</td>
+          <td>{{training.name }}</td>
+          <td>{{training.startDate | date:'dd/MM/y'}}</td>
+          <td>{{training.endDate | date:'dd/MM/y'}}</td>
+        </tr>
+    
+      <tr *ngIf="trainings && trainings.length==0">
+        <td colspan="5">
+          No training records to display
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
